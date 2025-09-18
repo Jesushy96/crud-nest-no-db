@@ -1,0 +1,23 @@
+meta {
+  name: Agregar
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://localhost:3000/tasks
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "title": 2,
+    "description": "Salida es a la 1pm",
+    "status": "jajaj"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

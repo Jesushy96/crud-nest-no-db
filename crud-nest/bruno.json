@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "crud-nest",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}
