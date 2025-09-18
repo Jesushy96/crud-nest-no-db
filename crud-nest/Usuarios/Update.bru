@@ -1,0 +1,20 @@
+meta {
+  name: Update
+  type: http
+  seq: 4
+}
+
+put {
+  url: http://localhost:3000/users/1
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "nombre": "Josue",
+    //"apellido": "Hermitaño",
+    "login": "letra"
+    //"password": "_Canelito123"
+  }
+}
