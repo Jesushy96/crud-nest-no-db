@@ -1,10 +1,11 @@
-import { Body, Controller, Delete, Get, HttpCode, Param, ParseIntPipe, Post, Put, Query, Res, UsePipes, ValidationPipe } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpCode, Param, ParseIntPipe, Post, Put, Query, Res, UseGuards, UsePipes, ValidationPipe } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { response, type Response } from 'express';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { ValidateUserPipe } from './pipes/validate-user/validate-user.pipe';
 import { SaludarQueryDto } from './dto/saludar-query.dto';
+import { AuthGuard } from './guards/auth/auth.guard';
 
 @Controller('/users')
 export class UsersController {
@@ -27,6 +28,7 @@ export class UsersController {
 
     // Forma buenas practicas 
     @Get('/saludar')
+    @UseGuards(AuthGuard)
     saludar(@Query() query: SaludarQueryDto) {
         return `Hola ${query.nombre}, tienes ${query.edad + 1} años`
     }
